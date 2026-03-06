@@ -79,6 +79,8 @@
 
 int led_duty = 0;
 bool isStreaming = false;
+bool isLedInitialized = false;
+bool hasLoggedMissingLed = false;
 
 #endif
 
@@ -281,6 +283,16 @@ static int run_face_recognition(fb_data_t *fb, std::list<dl::detect::result_t> *
 #if CONFIG_LED_ILLUMINATOR_ENABLED
 void enable_led(bool en)
 { // Turn LED On or Off
+    if (!isLedInitialized)
+    {
+        if (!hasLoggedMissingLed)
+        {
+            log_i("LED flash control skipped because no LED pin was initialized");
+            hasLoggedMissingLed = true;
+        }
+        return;
+    }
+
     int duty = en ? led_duty : 0;
     if (en && isStreaming && (led_duty > CONFIG_LED_MAX_INTENSITY))
     {
@@ -752,7 +764,14 @@ static esp_err_t stream_handler(httpd_req_t *req)
         }
         if (res != ESP_OK)
         {
-            log_e("Send frame failed");
+            if (res == ESP_ERR_HTTPD_RESP_SEND)
+            {
+                log_i("Stream client disconnected");
+            }
+            else
+            {
+                log_e("Send frame failed: %s", esp_err_to_name(res));
+            }
             break;
         }
         int64_t fr_end = esp_timer_get_time();
@@ -1388,6 +1407,8 @@ void setupLedFlash(int pin)
     #if CONFIG_LED_ILLUMINATOR_ENABLED
     ledcSetup(LED_LEDC_CHANNEL, 5000, 8);
     ledcAttachPin(pin, LED_LEDC_CHANNEL);
+    isLedInitialized = true;
+    hasLoggedMissingLed = false;
     #else
     log_i("LED flash is disabled -> CONFIG_LED_ILLUMINATOR_ENABLED = 0");
     #endif
