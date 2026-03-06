@@ -1,8 +1,11 @@
-# CAMERA WEB SERVER
+# CAMERA WEB SERVER • ARDUINO IDE VERSION
 
-This project is based on the `CameraWebServer` example from the `esp32 by Espressif Systems` Arduino package, with local project-specific adjustments.
+> This repository contains multiple variants of the project.
+> Switch to the appropriate Git branch to use the version you need, for example `platformio` or `arduino-ide`.
 
 ## Source
+
+This project is based on the `CameraWebServer` example from the `esp32 by Espressif Systems` Arduino package, with local project-specific adjustments.
 
 The original example is shipped with the ESP32 Arduino core.
 
@@ -43,3 +46,8 @@ On macOS, example files are typically located at:
 -   Optional cleanup (advanced users only):
     `rm -rf ~/Library/Arduino15`
     This removes all locally installed Arduino cores/libraries from Arduino15.
+
+## TODO
+
+-   Investigate PSRAM requirements.
+-   Confirm whether the current partition layout is appropriate.
