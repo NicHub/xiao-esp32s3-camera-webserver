@@ -22,6 +22,7 @@ On macOS, example files are typically located at:
    `https://espressif.github.io/arduino-esp32/package_esp32_index.json`
 -   A compatible camera board.
     Note that this repository is currently configured for `CAMERA_MODEL_XIAO_ESP32S3` and the XIAO ESP32S3 camera pin mapping.
+    See: <https://www.seeedstudio.com/XIAO-ESP32S3-Sense-p-5639.html>
 
 ## PlatformIO Setup
 
