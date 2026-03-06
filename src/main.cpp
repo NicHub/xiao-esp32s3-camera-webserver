@@ -166,5 +166,7 @@ void loop()
     Serial.println(millis());
     Serial.print("http://");
     Serial.println(WiFi.localIP());
+    Serial.print("MAC: ");
+    Serial.println(WiFi.macAddress());
     delay(10000);
 }
