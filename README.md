@@ -7,7 +7,13 @@ This project is based on the `CameraWebServer` example from the `esp32 by Espres
 
 ## Source
 
-The original example is shipped with the ESP32 Arduino core as the `CameraWebServer` example.
+This project is based on the `CameraWebServer` example from the `esp32 by Espressif Systems` Arduino package, with local project-specific adjustments.
+
+The original example is shipped with the ESP32 Arduino core.
+
+On macOS, example files are typically located at:
+
+`~/Library/Arduino15/packages/esp32/hardware/esp32/2.0.17/libraries/ESP32/examples/Camera/CameraWebServer`
 
 ## Requirements
 
