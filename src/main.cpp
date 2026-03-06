@@ -162,6 +162,8 @@ void setup()
 
 void loop()
 {
+    Serial.print("millis(): ");
+    Serial.println(millis());
     Serial.print("http://");
     Serial.println(WiFi.localIP());
     delay(10000);
