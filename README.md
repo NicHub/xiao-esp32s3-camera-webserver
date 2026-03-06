@@ -19,6 +19,7 @@ On macOS, example files are typically located at:
 -   ESP32 board package installed from:
     `https://espressif.github.io/arduino-esp32/package_esp32_index.json`
 -   A compatible camera board (this repository is currently configured for `CAMERA_MODEL_XIAO_ESP32S3`)
+    See: <https://www.seeedstudio.com/XIAO-ESP32S3-Sense-p-5639.html>
 
 ## Setup
 
