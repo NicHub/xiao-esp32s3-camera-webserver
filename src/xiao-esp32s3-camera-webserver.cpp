@@ -1,3 +1,4 @@
+#include "Arduino.h"
 #include "esp_camera.h"
 #include <WiFi.h>
 
@@ -41,7 +42,7 @@ void startCameraServer();
 void setupLedFlash(int pin);
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(BAUD_RATE);
   Serial.setDebugOutput(true);
   Serial.println();
 
