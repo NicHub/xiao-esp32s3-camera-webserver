@@ -154,19 +154,15 @@ void setup()
     Serial.println("WiFi connected");
 
     startCameraServer();
-
-    Serial.print("Camera Ready! Use 'http://");
-    Serial.print(WiFi.localIP());
-    Serial.println("' to connect");
 }
 
 void loop()
 {
-    Serial.print("millis(): ");
+    delay(1000 - millis() % 1000);
+    Serial.print("\nmillis(): ");
     Serial.println(millis());
-    Serial.print("http://");
-    Serial.println(WiFi.localIP());
     Serial.print("MAC: ");
     Serial.println(WiFi.macAddress());
-    delay(10000);
+    Serial.print("http://");
+    Serial.println(WiFi.localIP());
 }
