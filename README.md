@@ -47,6 +47,15 @@ On macOS, example files are typically located at:
     `rm -rf ~/Library/Arduino15`
     This removes all locally installed Arduino cores/libraries from Arduino15.
 
+## Usefull commands
+
+```bash
+# The ESP32S3 is blocked very often.
+alias esptool.py='python3 $HOME/.platformio/packages/tool-esptoolpy/esptool.py'
+PORT=/dev/cu.usbmodem20114201
+esptool.py --chip esp32s3 --port $PORT erase_flash
+
+```
 ## TODO
 
 -   Investigate PSRAM requirements.

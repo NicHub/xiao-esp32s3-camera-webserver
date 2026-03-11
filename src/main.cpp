@@ -47,6 +47,16 @@ void setup()
     Serial.setDebugOutput(true);
     Serial.println();
 
+    bool has_psram = psramFound();
+    if (has_psram)
+    {
+        Serial.printf("PSRAM detected: total=%u bytes, free=%u bytes\n", ESP.getPsramSize(), ESP.getFreePsram());
+    }
+    else
+    {
+        Serial.println("PSRAM not detected, falling back to DRAM-safe camera settings");
+    }
+
     camera_config_t config;
     config.ledc_channel = LEDC_CHANNEL_0;
     config.ledc_timer = LEDC_TIMER_0;
@@ -79,7 +89,7 @@ void setup()
     //                      for larger pre-allocated frame buffer.
     if (config.pixel_format == PIXFORMAT_JPEG)
     {
-        if (psramFound())
+        if (has_psram)
         {
             config.jpeg_quality = 10;
             config.fb_count = 2;
@@ -100,6 +110,13 @@ void setup()
         config.fb_count = 2;
 #endif
     }
+
+    Serial.printf(
+        "Camera config: frame_size=%d, jpeg_quality=%d, fb_count=%d, fb_location=%s\n",
+        config.frame_size,
+        config.jpeg_quality,
+        config.fb_count,
+        config.fb_location == CAMERA_FB_IN_PSRAM ? "PSRAM" : "DRAM");
 
 #if defined(CAMERA_MODEL_ESP_EYE)
     pinMode(13, INPUT_PULLUP);
