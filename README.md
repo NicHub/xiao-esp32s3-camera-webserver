@@ -54,8 +54,14 @@ On macOS, example files are typically located at:
 alias esptool.py='python3 $HOME/.platformio/packages/tool-esptoolpy/esptool.py'
 PORT=/dev/cu.usbmodem20114201
 esptool.py --chip esp32s3 --port $PORT erase_flash
-
 ```
+
+## Links
+
+-   [Préparation d’Arduino pour l’atelier IA avec la camera XIAO ESP32S3 Sense]
+
+[Préparation d’Arduino pour l’atelier IA avec la camera XIAO ESP32S3 Sense]: https://microclub.ch/2025/04/05/preparation-darduino-pour-latelier-ia-avec-la-camera-xiao-esp32s3-sense/#comment-1358
+
 ## TODO
 
 -   Investigate PSRAM requirements.
