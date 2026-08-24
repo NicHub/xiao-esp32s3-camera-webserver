@@ -56,6 +56,12 @@ PORT=/dev/cu.usbmodem20114201
 esptool.py --chip esp32s3 --port $PORT erase_flash
 ```
 
+## Other solutions
+
+-   PRUSA 3D
+    -   [Prusa-Firmware-ESP32-Cam — Binaries](https://github.com/prusa3d/Prusa-Firmware-ESP32-Cam/releases)
+    -   [Prusa-Firmware-ESP32-Cam — Arduino IDE](https://github.com/prusa3d/Prusa-Firmware-ESP32-Cam)
+
 ## Links
 
 -   [Préparation d’Arduino pour l’atelier IA avec la camera XIAO ESP32S3 Sense]
